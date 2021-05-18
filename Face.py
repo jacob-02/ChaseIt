@@ -45,9 +45,6 @@ def reco():
                     sys.exit()
                 cv2.putText(frame, str(cp) + "%", (x, y - 30), font, 1, color, stroke, cv2.LINE_AA)
 
-            img_item = "kau4.png"
-            cv2.imwrite(img_item, roi_color)
-
         cv2.imshow('ironman', frame)
         if cv2.waitKey(1) == ord('q'):
             break
