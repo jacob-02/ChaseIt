@@ -17,8 +17,8 @@ def start(name):
             roi_gray = gray[y:y + h, x:x + w]
             cv2.imwrite("images/" + name + "/" + str(a) + ".png", roi_gray)
             a = a + 1
-        cv2.imshow('frame', img)
-        if cv2.waitKey(100) == 97 or a > 200:
+        cv2.imshow('data', img)
+        if cv2.waitKey(1) == ord('q'):
             break
     face_train.train()
     vid.release()

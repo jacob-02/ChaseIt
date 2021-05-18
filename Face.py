@@ -1,7 +1,5 @@
 import cv2
 import pickle
-import sys
-import test
 
 
 def reco():
@@ -34,16 +32,8 @@ def reco():
                 cv2.putText(frame, name, (x, y), font, 1, color, stroke, cv2.LINE_AA)
                 temp = conf - conf_min
                 cp = 100 - int((temp / conf_min) * 100)
-                if cp > 73:
-                    print(test.find(name))
-                    a = cv2.imread('images/download.jpeg')
-                    cv2.imshow("Ordered", a)
-                    cv2.waitKey(6000)
-                    cv2.destroyAllWindows()
-                    sys.exit()
-                cv2.putText(frame, str(cp) + "%", (x, y - 30), font, 1, color, stroke, cv2.LINE_AA)
 
-        cv2.imshow('ironman', frame)
+        cv2.imshow('Hello There', frame)
         if cv2.waitKey(1) == ord('q'):
             break
     cap.release()

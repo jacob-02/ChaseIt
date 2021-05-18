@@ -2,8 +2,7 @@ import os
 import click_img
 import sheet
 
-
-# a = sheet.write('1', "Sheet1!C1:C2")
+a = sheet.write('0', "Sheet1!C1:C2")
 
 
 def reg(data):
@@ -12,15 +11,13 @@ def reg(data):
     click_img.start(data)
 
     global a
-    a = (sheet.read("Sheet1!C1:C2")[0])
-    print((a[0]))
-    consumer_column = "Sheet1!A0" + ":A" + str(int(a[0]) + 1)
+    a = sheet.read("Sheet1!C1:C2")
+    consumer_column = "Sheet1!A" + str(a) + ":A" + str(a + 1)
 
     sheet.write(data, consumer_column)
 
-    a[0] += str(int(a[0]) + 1)
-    sheet.write(str(a), "Sheet1!C1:C2")
+    a += 1
 
 
-name = input("Enter the person's name")
+name = input("Enter the name of the person ")
 reg(name)
