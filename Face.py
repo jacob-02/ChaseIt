@@ -36,7 +36,7 @@ def reco():
                 cp = 100 - int((temp / conf_min) * 100)
                 if cp > 73:
                     print(test.find(name))
-                    a = cv2.imread('../images/download.jpeg')
+                    a = cv2.imread('images/download.jpeg')
                     cv2.imshow("Ordered", a)
                     cv2.waitKey(6000)
                     cv2.destroyAllWindows()

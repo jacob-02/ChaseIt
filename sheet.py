@@ -3,7 +3,7 @@ from google.oauth2 import service_account
 
 
 def read(hi):
-    SERVICE_ACCOUNT_FILE = '../googleAPI/new.json'
+    SERVICE_ACCOUNT_FILE = 'googleAPI/new.json'
     SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
     creds = None
     creds = service_account.Credentials.from_service_account_file(
@@ -23,7 +23,7 @@ def read(hi):
 
 
 def write(aa, bb):
-    SERVICE_ACCOUNT_FILE = '../googleAPI/new.json'
+    SERVICE_ACCOUNT_FILE = 'googleAPI/new.json'
     SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
     creds = None
     creds = service_account.Credentials.from_service_account_file(
