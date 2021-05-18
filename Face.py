@@ -23,7 +23,6 @@ def reco():
         for (x, y, w, h) in faces:
             cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
             roi_gray = gray[y:y + h, x:x + w]
-            roi_color = frame[y:y + h, x:x + w]
             id_, conf = recognizer.predict(roi_gray)
             if conf_min <= conf <= conf_max:
                 print(id_)
