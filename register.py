@@ -14,7 +14,7 @@ def reg(data):
     global a
     a = (sheet.read("Sheet1!C1:C2")[0])
     print((a[0]))
-    consumer_column = "Sheet1!A" + (a[0]) + ":A" + str(int(a[0]) + 1)
+    consumer_column = "Sheet1!A0" + ":A" + str(int(a[0]) + 1)
 
     sheet.write(data, consumer_column)
 
