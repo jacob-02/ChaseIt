@@ -17,7 +17,7 @@ def reg(data):
 
     sheet.write(data, consumer_column)
 
-    a = int(a[0][0]) + 1
+    consumer_column = int(a[0][0]) + 1
 
 
 name = input("Enter the name of the person ")
