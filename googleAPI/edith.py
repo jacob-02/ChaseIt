@@ -1,10 +1,9 @@
 
 import eel
 import os
-import sys
-import click_img
+from faceRecognition import click_img
 from web import sheet
-from googleAPI import *
+
 eel.init('web')
 
 @eel.expose
