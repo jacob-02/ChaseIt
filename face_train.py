@@ -33,8 +33,6 @@ def train():
                 image_array = np.array(final_image, "uint8")
                 x_train.append(image_array)
                 y_labels.append(id_)
-    # print(y_labels)
-    # print(x_train)
     with open("labels.pickle", 'wb') as f:
         pickle.dump(label_ids, f)
 
