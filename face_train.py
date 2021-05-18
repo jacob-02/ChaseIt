@@ -20,7 +20,8 @@ def train():
                 print(file)
                 path = os.path.join(root, file)
                 label = os.path.basename(os.path.dirname(path)).replace(" ",
-                                                                        "-").lower()  # get name of folder that image is in
+                                                                        "-").lower()  # get name of folder that image
+                # is in
                 # print(label,path)
                 if not label in label_ids:
                     label_ids[label] = current_id
