@@ -3,10 +3,13 @@ import cv2
 
 vid = cv2.VideoCapture(0)
 coordinates = [[0, 0]]
-slope = 0.0
+slope = 0
 
 while True:
     ret, image = vid.read()
+
+    height = image.shape[0]
+    width = image.shape[1]
 
     hsvFrame = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
@@ -38,9 +41,17 @@ while True:
 
             cv2.line(image, (centre_x, centre_y), (coordinates[0][0], coordinates[0][1]), (0, 256, 0))
 
-            if (x-centre_x) != 0.0:
+            if (x-centre_x) != 0:
                 slope = (y-centre_y)/(x-centre_x)
-            cv2.putText(image, str(slope), (280, 450), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255), 3)
+
+            if slope > 0.2:
+                cv2.putText(image, "Left", (width//2, height//2), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255), 3)
+
+            elif slope < -0.2:
+                cv2.putText(image, "Right", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255), 3)
+
+            else:
+                cv2.putText(image, "Straight", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255), 3)
 
             coordinates.pop()
             coordinates.append([centre_x, centre_y])
