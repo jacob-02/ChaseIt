@@ -1,5 +1,4 @@
 import cv2
-import numpy as np
 import utlis
 
 
@@ -21,10 +20,9 @@ if __name__ == '__main__':
     initialtracbarvals = [100, 100, 100, 100]
     utlis.initialisetrackbars(initialtracbarvals)
     while True:
-        # utlis.initialisetrackba0rs()
-        success, img = cap.read()
-        img = cv2.resize(img, (640, 480))
-        getlanecurve(img)
-        cv2.imshow('Vid', img)
+        success, image = cap.read()
+        image = cv2.resize(image, (640, 480))
+        getlanecurve(image)
+        cv2.imshow('Vid', image)
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break

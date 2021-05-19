@@ -6,7 +6,7 @@ def thresholding(img):
     imgHSV = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     lower = np.array([0, 100, 100])
     upper = np.array([30, 200, 220])
-    mask = cv2.inRange(img, lower, upper)
+    mask = cv2.inRange(imgHSV, lower, upper)
     return mask
 
 
@@ -18,7 +18,7 @@ def warpimg(img, points, w, h):
     return imgwarp
 
 
-def nothing(a):
+def nothing():
     pass
 
 
@@ -31,7 +31,7 @@ def initialisetrackbars(initialtracbarvals, wT=480, hT=240):
     cv2.createTrackbar("height bottom", "trackbars", initialtracbarvals[3], hT, nothing)
 
 
-def valtrackbars(wT=480, hT=240):
+def valtrackbars(wT=480):
     widthtop = cv2.getTrackbarPos("width top", "trackbars")
     heighttop = cv2.getTrackbarPos("height top", "trackbars")
     widthbottom = cv2.getTrackbarPos("width bottom", "trackbars")
