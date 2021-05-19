@@ -3,6 +3,7 @@ import cv2
 
 vid = cv2.VideoCapture(0)
 coordinates = [[0, 0]]
+slope = 0.0
 
 while True:
     ret, image = vid.read()
@@ -49,5 +50,3 @@ while True:
         vid.release()
         cv2.destroyAllWindows()
         break
-
-print(centre_x, centre_y)
