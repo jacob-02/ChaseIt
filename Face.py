@@ -17,8 +17,7 @@ def start(name):
             centre_x, centre_y = ((x + x + w) // 2, (y + y + h) // 2)
             cv2.circle(img, (centre_x, centre_y), 7, (0, 255, 0), thickness=cv2.FILLED)
             slope = (height - centre_y) // (width // 2 - centre_x)
-            print(slope)
-            # print(centre_x, centre_y)
+            print(centre_x, centre_y)
             if 4.0 >= slope > 0.0:
                 cv2.putText(img, "Left", (280, 450), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255), 3)
             elif -0.4 >= slope < 0.0:
