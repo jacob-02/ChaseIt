@@ -4,7 +4,7 @@ vid = cv2.VideoCapture(0)
 
 
 def start(name):
-    face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
     width = vid.get(cv2.CAP_PROP_FRAME_WIDTH)   # To find the width of the frame
     height = vid.get(cv2.CAP_PROP_FRAME_HEIGHT)     # To find the height of the frame
     while True:
