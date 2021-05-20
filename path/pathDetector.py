@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 
-vid = cv2.VideoCapture(0)
+vid = cv2.VideoCapture('Track2.mp4')
 coordinates = [[0, 0]]
 
 
@@ -47,10 +47,10 @@ def orange():
                     slope = (y - centre_y) / (x - centre_x)
 
                 if slope > 0.2:
-                    cv2.putText(image, "Left", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255), 3)
+                    cv2.putText(image, "Right", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255), 3)
 
                 elif slope < -0.2:
-                    cv2.putText(image, "Right", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255),
+                    cv2.putText(image, "Left", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255),
                                 3)
 
                 else:
@@ -108,10 +108,10 @@ def yellow():
                     slope = (y - centre_y) / (x - centre_x)
 
                 if slope > 0.2:
-                    cv2.putText(image, "Left", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255), 3)
+                    cv2.putText(image, "Right", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255), 3)
 
                 elif slope < -0.2:
-                    cv2.putText(image, "Right", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255),
+                    cv2.putText(image, "Left", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255),
                                 3)
 
                 else:
@@ -126,3 +126,5 @@ def yellow():
             vid.release()
             cv2.destroyAllWindows()
             break
+
+orange()
