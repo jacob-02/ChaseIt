@@ -26,8 +26,8 @@ def start(name):
 
         cv2.imshow(name, img)
 
-        # if not detector.detector():
-        #     break
+        if not detector.detector(vid, face_cascade):
+            break
 
         if cv2.waitKey(20) & 0xFF == ord('q'):
             break
