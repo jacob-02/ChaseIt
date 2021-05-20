@@ -1,3 +1,5 @@
-from faceDetection import Face
+from faceDetection import Face, pathDetector
 
-Face.start("Hello")
+
+if Face.detector():
+    Face.start('Intruder')
