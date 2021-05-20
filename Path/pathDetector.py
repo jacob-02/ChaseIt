@@ -8,11 +8,9 @@ def yellow():
     vid = cv2.VideoCapture(0)
     slope = 0.0
 
-    start = 0
-    end = 0
+    count = 0
 
     coordinates = [[0, 0]]
-    start = time.time()
     while True:
         ret, image = vid.read()
 
@@ -69,7 +67,9 @@ def yellow():
 
         cv2.imshow("images", np.hstack([image, res_yellow]))
 
-        if (time.time() - start) > 4:
+        count += 1
+
+        if (count) > 200:
             vid.release()
             cv2.destroyAllWindows()
             break

@@ -4,13 +4,11 @@ import cv2
 
 def detect(name):
 
-    start = 0
-    end = 0
+    count = 0
 
     vid = cv2.VideoCapture(0)
     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default'
                                                                  '.xml')
-    start = time.time()
     if detector(vid, face_cascade) == 1:
         while True:
             s, img = vid.read()
@@ -21,9 +19,9 @@ def detect(name):
                 centre_x, centre_y = ((x + x + w) // 2, (y + y + h) // 2)
                 print(centre_x, centre_y)
 
-            end = time.time()
+            count += 1
 
-            if detector(vid, face_cascade) == 0 and (end - start) > 4.0:
+            if detector(vid, face_cascade) == 0 or count > 200:
                 vid.release()
                 cv2.destroyAllWindows()
                 break
