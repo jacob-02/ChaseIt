@@ -2,9 +2,7 @@ import cv2
 import detector
 
 
-def start(name):
-    vid = cv2.VideoCapture(0)
-    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+def start(name, vid, face_cascade):
     width = vid.get(cv2.CAP_PROP_FRAME_WIDTH)
     height = vid.get(cv2.CAP_PROP_FRAME_HEIGHT)
     while True:
@@ -33,6 +31,3 @@ def start(name):
             break
     vid.release()
     cv2.destroyAllWindows()
-
-
-start('Intruder')
