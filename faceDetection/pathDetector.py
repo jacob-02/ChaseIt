@@ -1,20 +1,15 @@
 import numpy as np
 import cv2
 import detector
-import Face
-import time
 
 
-def yellow():
+def yellow(vid):
     slope = 0.0
 
-    vid = cv2.VideoCapture(0)
     coordinates = [[0, 0]]
 
     while True:
         ret, image = vid.read()
-
-        time.sleep(3)
 
         height = image.shape[0]
         width = image.shape[1]
@@ -67,17 +62,12 @@ def yellow():
                 coordinates.pop()
                 coordinates.append([centre_x, centre_y])
 
+        # if not detector.detector(vid, cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default'
+        #                                                                             '.xml')):
+        #     break
+
         cv2.imshow("images", np.hstack([image, res_yellow]))
-
-        if detector.detector(vid, cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default'
-                                                                                '.xml')):
-            Face.start('Intruder', vid, cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default'
-                                                                                      '.xml'))
-
         if cv2.waitKey(10) & 0xFF == ord('q'):
             vid.release()
             cv2.destroyAllWindows()
             break
-
-
-yellow()
