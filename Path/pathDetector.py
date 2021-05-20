@@ -1,5 +1,3 @@
-import time
-
 import numpy as np
 import cv2
 
@@ -69,7 +67,7 @@ def yellow():
 
         count += 1
 
-        if (count) > 200:
+        if count > 200:
             vid.release()
             cv2.destroyAllWindows()
             break
