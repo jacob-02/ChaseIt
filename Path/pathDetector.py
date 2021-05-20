@@ -1,13 +1,18 @@
+import time
+
 import numpy as np
 import cv2
-import detector
 
 
-def yellow(vid):
+def yellow():
+    vid = cv2.VideoCapture(0)
     slope = 0.0
 
-    coordinates = [[0, 0]]
+    start = 0
+    end = 0
 
+    coordinates = [[0, 0]]
+    start = time.time()
     while True:
         ret, image = vid.read()
 
@@ -62,12 +67,14 @@ def yellow(vid):
                 coordinates.pop()
                 coordinates.append([centre_x, centre_y])
 
-        # if not detector.detector(vid, cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default'
-        #                                                                             '.xml')):
-        #     break
-
         cv2.imshow("images", np.hstack([image, res_yellow]))
-        if cv2.waitKey(10) & 0xFF == ord('q'):
+
+        if (time.time() - start) > 4:
+            vid.release()
+            cv2.destroyAllWindows()
+            break
+
+        if cv2.waitKey(20) & 0xFF == ord('d'):
             vid.release()
             cv2.destroyAllWindows()
             break
