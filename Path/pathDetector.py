@@ -74,12 +74,10 @@ def orange(vid):
 
         count += 1
 
-        if count > 200:
+        if count > 280:
             vid.release()
             cv2.destroyAllWindows()
             break
 
         if cv2.waitKey(20) & 0xFF == ord('d'):
-            vid.release()
-            cv2.destroyAllWindows()
             break
