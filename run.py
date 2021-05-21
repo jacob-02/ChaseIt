@@ -5,7 +5,7 @@ count = 0
 
 while True:
     if count % 2 == 0:
-        pathDetector.yellow()
+        pathDetector.orange()
         count += 1
 
     else:
