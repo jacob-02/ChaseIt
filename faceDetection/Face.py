@@ -28,8 +28,6 @@ def detect(name):
             cv2.imshow(name, img)
 
             if cv2.waitKey(20) & 0xFF == ord('d'):
-                vid.release()
-                cv2.destroyAllWindows()
                 break
 
 
@@ -41,6 +39,4 @@ def detector(vid, face_cascade):
     for (x, y, w, h) in faces:
         a = 1
         return a
-    vid.release()
-    cv2.destroyAllWindows()
     return a

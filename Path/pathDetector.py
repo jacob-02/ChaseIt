@@ -73,6 +73,4 @@ def yellow():
             break
 
         if cv2.waitKey(20) & 0xFF == ord('d'):
-            vid.release()
-            cv2.destroyAllWindows()
             break
