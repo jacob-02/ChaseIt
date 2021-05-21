@@ -3,7 +3,7 @@ import cv2
 
 
 def orange():
-    vid = cv2.VideoCapture(0)
+    vid = cv2.VideoCapture('robo2.mp4')
     slope = 0.0
 
     count = 0
@@ -13,7 +13,7 @@ def orange():
         ret, image = vid.read()
 
         # image = cv2.rotate(image, 0)
-        # image = image[190:450, 10:1290]
+        image = image[190:450, 10:1290]
 
         height = image.shape[0]
         width = image.shape[1]
@@ -40,7 +40,7 @@ def orange():
                               (x + w, y + h),
                               (255, 255, 0), 2)
 
-                cv2.putText(image, "Orange", (x, y),
+                cv2.putText(image, "orange", (x, y),
                             cv2.FONT_HERSHEY_SIMPLEX,
                             1.0, (255, 255, 0))
 
@@ -52,11 +52,11 @@ def orange():
                 if (x - centre_x) != 0:
                     slope = (y - centre_y) / (x - centre_x)
 
-                if slope > 0.1:
+                if slope > 0.15:
                     cv2.putText(image, "Right", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255),
                                 3)
 
-                elif slope < -0.1:
+                elif slope < -0.15:
                     cv2.putText(image, "Left", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255),
                                 3)
 

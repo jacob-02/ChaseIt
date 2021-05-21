@@ -22,7 +22,7 @@ def detect(name):
 
         if detector(vid, face_cascade) == 0 or count > 200:
             time += 1
-            if time > 50:
+            if time > 30:
                 vid.release()
                 cv2.destroyAllWindows()
                 break
