@@ -37,16 +37,16 @@ def orange(vid):
                 x, y, w, h = cv2.boundingRect(contour)
                 cv2.rectangle(image, (x, y),
                               (x + w, y + h),
-                              (255, 255, 0), 2)
+                              (25, 255, 255), 2)
 
-                cv2.putText(image, "orange", (x, y),
+                cv2.putText(image, "Orange", (x, y),
                             cv2.FONT_HERSHEY_SIMPLEX,
                             1.0, (255, 255, 0))
 
                 centre_x, centre_y = ((x * 2 + w) // 2, (y * 2 + h) // 2)
                 x, y = (coordinates[0][0], coordinates[0][1])
 
-                cv2.line(image, (centre_x, centre_y), (coordinates[0][0], coordinates[0][1]), (0, 256, 0))
+                cv2.line(image, (centre_x, centre_y), (coordinates[0][0], coordinates[0][1]), (25, 255, 255))
 
                 if (x - centre_x) != 0:
                     slope = (y - centre_y) / (x - centre_x)
