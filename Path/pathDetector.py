@@ -51,13 +51,17 @@ def orange(vid):
                 if (x - centre_x) != 0:
                     slope = (y - centre_y) / (x - centre_x)
 
-                if slope > 0.15:
+                if slope > 0.0915:
                     cv2.putText(image, "Right", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255),
                                 3)
 
-                elif slope < -0.15:
+                elif slope < -0.0915 or slope == 0:
                     cv2.putText(image, "Left", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255),
                                 3)
+
+                elif slope == 0:
+                    cv2.putText(image, "Left", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3,
+                                (255, 255, 255), 3)
 
                 else:
                     cv2.putText(image, "Straight", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3,
@@ -76,4 +80,6 @@ def orange(vid):
             break
 
         if cv2.waitKey(20) & 0xFF == ord('d'):
+            vid.release()
+            cv2.destroyAllWindows()
             break
