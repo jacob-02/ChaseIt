@@ -3,7 +3,7 @@ import cv2
 
 
 def yellow():
-    vid = cv2.VideoCapture('track.mp4')
+    vid = cv2.VideoCapture(0)
     slope = 0.0
 
     count = 0
