@@ -4,7 +4,7 @@
 
 # Team Members
   
-  Kaushik Narayan and
+  Kaushik Narayan \
   Jacob V Sanoj
 
 # What
