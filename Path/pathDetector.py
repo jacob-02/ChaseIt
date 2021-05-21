@@ -2,8 +2,7 @@ import numpy as np
 import cv2
 
 
-def orange():
-    vid = cv2.VideoCapture('robo2.mp4')
+def orange(vid):
     slope = 0.0
 
     count = 0
