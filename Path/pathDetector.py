@@ -10,8 +10,6 @@ def orange(vid):
     coordinates = [[0, 0]]
     while True:
         ret, image = vid.read()
-
-        # image = cv2.rotate(image, 0)
         image = image[190:450, 10:1290]
 
         height = image.shape[0]
@@ -58,10 +56,6 @@ def orange(vid):
                 elif slope < -0.0915:
                     cv2.putText(image, "Left", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255),
                                 3)
-
-                # elif slope == 0:
-                #     cv2.putText(image, "Left", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3,
-                #                 (255, 255, 255), 3)
 
                 else:
                     cv2.putText(image, "Straight", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3,
