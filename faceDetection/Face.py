@@ -3,6 +3,7 @@ import cv2
 
 def detect(name):
     slope = 0.0
+    count = 0
 
     vid = cv2.VideoCapture(0)
     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default'
@@ -30,9 +31,11 @@ def detect(name):
                 cv2.putText(img, "Front", (280, 450), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255), 3)
 
         if detector(vid, face_cascade) == 0:
-            vid.release()
-            cv2.destroyAllWindows()
-            break
+            count += 1
+            if count > 20:
+                vid.release()
+                cv2.destroyAllWindows()
+                break
 
         cv2.imshow(name, img)
 
