@@ -33,7 +33,7 @@ def orange(vid):
 
         for pic, contour in enumerate(contours):
             area = cv2.contourArea(contour)
-            if area > 5000:
+            if area > 500:
                 x, y, w, h = cv2.boundingRect(contour)
                 cv2.rectangle(image, (x, y),
                               (x + w, y + h),
@@ -55,13 +55,13 @@ def orange(vid):
                     cv2.putText(image, "Right", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255),
                                 3)
 
-                elif slope < -0.0915 or slope == 0:
+                elif slope < -0.0915:
                     cv2.putText(image, "Left", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255),
                                 3)
 
-                elif slope == 0:
-                    cv2.putText(image, "Left", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3,
-                                (255, 255, 255), 3)
+                # elif slope == 0:
+                #     cv2.putText(image, "Left", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3,
+                #                 (255, 255, 255), 3)
 
                 else:
                     cv2.putText(image, "Straight", (width // 2, height // 2), cv2.FONT_HERSHEY_PLAIN, 3,
