@@ -18,7 +18,7 @@ def orange(vid):
         image = cv2.GaussianBlur(image, (9, 9), cv2.BORDER_DEFAULT)
         hsvFrame = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
-        orange_lower = np.array([5, 50, 50], np.uint8)
+        orange_lower = np.array([15, 50, 50], np.uint8)
         orange_upper = np.array([25, 255, 255], np.uint8)
         orange_mask = cv2.inRange(hsvFrame, orange_lower, orange_upper)
 
