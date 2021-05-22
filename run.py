@@ -4,6 +4,6 @@ import cv2
 
 
 while True:
-    vid = cv2.VideoCapture('robo2.mp4')
+    vid = cv2.VideoCapture(0)
     pathDetector.orange(vid)
     Face.detect('Intruder')
