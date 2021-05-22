@@ -2,9 +2,6 @@ import cv2
 
 
 def detect(name):
-
-    count = 0
-    time = 0
     slope = 0.0
 
     vid = cv2.VideoCapture(0)
@@ -20,7 +17,7 @@ def detect(name):
         for (x, y, w, h) in faces:
             cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
             centre_x, centre_y = ((x + x + w) // 2, (y + y + h) // 2)
-            print(centre_x, centre_y)
+            print("X:", centre_x, "Y:", centre_y)
 
             if (width // 2 - centre_x) != 0:
                 slope = (height - centre_y) / (width // 2 - centre_x)
@@ -32,17 +29,10 @@ def detect(name):
             else:
                 cv2.putText(img, "Front", (280, 450), cv2.FONT_HERSHEY_PLAIN, 3, (255, 255, 255), 3)
 
-        count += 1
-
-        if detector(vid, face_cascade) == 0 and count > 200:
-            time += 1
-            if time > 20:
-                vid.release()
-                cv2.destroyAllWindows()
-                break
-
-        else:
-            time = 0
+        if detector(vid, face_cascade) == 0:
+            vid.release()
+            cv2.destroyAllWindows()
+            break
 
         cv2.imshow(name, img)
 
